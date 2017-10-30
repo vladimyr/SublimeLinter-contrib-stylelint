@@ -22,7 +22,7 @@ class Stylelint(NodeLinter):
 
     syntax = ('css', 'css3', 'sass', 'scss', 'postcss', 'less', 'sugarss', 'sss', 'vue')
     npm_name = 'stylelint'
-    cmd = ('stylelint', '--formatter', 'json', '--stdin', '--stdin-filename', '@')
+    cmd = ('stylelint', '--formatter', 'json', '--syntax', 'scss',  '--stdin', '--stdin-filename', '@')
     version_args = '--version'
     version_re = r'(?P<version>\d+\.\d+\.\d+)'
     version_requirement = '>= 7.0.0'
@@ -35,8 +35,8 @@ class Stylelint(NodeLinter):
     )
 
     selectors = {
-        'html': 'source.css.embedded.html',
-        'vue': 'source.css.embedded.html'
+        'html': 'source.scss.embedded.html',
+        'vue': 'source.scss.embedded.html'
     }
 
     def find_errors(self, output):
